@@ -1,0 +1,82 @@
+.gallery {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; /* Высота галереи */
+}
+
+.imageContainer {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  display: flex;
+}
+
+.imageWrapper {
+  flex: 0 0 calc(100% / 5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center;
+  opacity: 0.5;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  height: 100%; /* Обеспечивает равенство высоты контейнера */
+}
+
+.imageWrapper img {
+  width: auto; /* Сохраняет пропорции изображения */
+  height: 100%; /* Устанавливает высоту в 100% родителя */
+  object-fit: contain; /* Изображение будет полностью вписано */
+  border-radius: 8px;
+}
+
+.imageWrapper.center {
+  z-index: 10;
+  opacity: 1;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  transition: background 0.3s ease;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 30;
+  padding: 0.5rem;
+}
+
+.arrow:first-of-type {
+  left: 2%;
+}
+
+.arrow:last-of-type {
+  right: 2%;
+}
+
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 1024px) {
+  .imageWrapper {
+    flex: 0 0 calc(100% / 3);
+  }
+}
+
+@media (max-width: 768px) {
+  .imageWrapper {
+    flex: 0 0 100%;
+  }
+}

@@ -1,0 +1,79 @@
+.masseur {
+  padding: 20px;
+  background-color: #f7f7f7;
+  /* display: flex; */
+  flex-wrap: nowrap; /* Чтобы текст и фото оставались на одной линии */
+  align-items: stretch; /* Выравнивание по высоте */
+  justify-content: space-between;
+  max-width: 1200px; /* Ограничение ширины секции */
+  margin: 0 auto; /* Центровка секции */
+  box-sizing: border-box;
+}
+
+.masseurTitle {
+  font-size: 24px;
+  color: #611f24;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%; /* Чтобы заголовок занимал всю ширину */
+}
+
+.masseurContent {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: nowrap; /* Гарантируем, что текст и фото не будут переноситься */
+  gap: 20px;
+}
+
+.masseurImage {
+  max-width: 50%;
+  height: auto;
+  flex: 0 0 auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.masseurDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.masseurName {
+  font-size: 20px;
+  color: #e68345;
+  margin-bottom: 10px;
+}
+
+.masseurDescription {
+  font-size: 16px;
+  color: #611f24;
+}
+
+.masseurDescription p {
+  margin-top: 10px; /* Отступ сверху для разделения абзацев */
+  text-indent: 20px; /* Красная строка (отступ в начале абзаца) */
+  line-height: 1.6; /* Улучшает читаемость */
+}
+
+
+@media (max-width: 1024px) {
+  .masseur {
+    flex-direction: column;
+  }
+  .masseurContent {
+    flex-direction: column;
+  }
+  .masseurImage {
+    max-width: 100%;
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .masseurImage {
+    display: none;
+  }
+}

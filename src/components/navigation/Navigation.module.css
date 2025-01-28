@@ -1,0 +1,140 @@
+.navigation {
+  position: relative;
+}
+
+/* Бургер-иконка */
+.burger {
+  display: block;
+  width: 36px;
+  height: 28px;
+  background: none;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  z-index: 1100;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.burger span {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: #9c856a; /* Мягкий бежево-коричневый */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+/* Псевдоэлементы для верхней и нижней полоски */
+.burger::before,
+.burger::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #9c856a;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.burger::before {
+  top: 0;
+}
+
+.burger::after {
+  bottom: 0;
+}
+
+/* Состояние открытия меню */
+.burger.open span {
+  opacity: 0;
+}
+
+.burger.open::before,
+.burger.open::after {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform-origin: center;
+  transform: translateY(-50%);
+}
+
+.burger.open::before {
+  transform: rotate(45deg);
+}
+
+.burger.open::after {
+  transform: rotate(-45deg);
+}
+
+/* Полноэкранное меню */
+.menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #f5e8d5; /* Светлый бежевый */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.menu.open {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 24px;
+  color: #2c3e50; /* Тёмный цвет текста */
+  padding: 12px 24px;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #000; /* Бежевый при наведении */
+}
+
+.menu .active {
+  font-weight: bold;
+  color: #4a4a33 ;
+  text-decoration: underline;
+}
+.menu a.active:hover {
+  color: #4a4a33 ;
+}
+/* Скрытие бургер-меню на больших экранах */
+@media (min-width: 768px) {
+  .burger {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 24px;
+    position: static;
+    height: auto;
+    background-color: transparent;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu a {
+    font-size: 16px;
+    color: #2c3e50;
+  }
+}

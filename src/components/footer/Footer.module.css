@@ -1,0 +1,70 @@
+.footer {
+  width: 100%;
+  background-color: #dac6a5; /* Бежевый фон для мягкого стиля */
+  padding: 20px 0;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  color: #2c3e50;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #9c856a; /* Бежево-коричневый */
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo-text {
+  font-family: 'Arial', sans-serif;
+}
+
+.logo-icon {
+  font-size: 20px;
+  color: #d4b89b; /* Мягкий бежевый */
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.socials a {
+  color: #2c3e50;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.socials a:hover {
+  color: #828f59; /* Оливковый акцент при наведении */
+}
+
+.book-button {
+  background-color: #828f59; /* Оливковый фон */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-button:hover {
+  background-color: #ece6ce; /* Светлый бежевый на hover */
+  color: #2c3e50;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

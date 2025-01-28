@@ -1,0 +1,11 @@
+/* src/pages/prices-page/PricesPage.module.css */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 105px 20px 0 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Cennik",
+  "tableHeaders": {
+    "service": "Usługa",
+    "time": "Czas trwania",
+    "price": "Cena"
+  },
+  "services": {
+    "face": "Masaż twarzy",
+    "classic": "Masaż klasyczny",
+    "relaxing": "Masaż relaksacyjny",
+    "therapeutic": "Masaż terapeutyczny",
+    "lymphaticDrainage": "Masaż limfatyczny"
+  },
+  "minutes": "min"
+}

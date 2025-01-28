@@ -1,0 +1,15 @@
+{
+  "header": {
+    "logo": "SOFIA"
+  },
+  "footer": {
+    "logo": "SOFIA",
+    "bookButton": "Book now"
+  },
+  "navigation": {
+    "home": "Home",
+    "massage": "Massages",
+    "prices": "Prices",
+    "contact": "Contact"
+  }
+}

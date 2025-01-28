@@ -1,0 +1,32 @@
+{
+  "massages": {
+    "face": {
+      "title": "Masaż twarzy",
+      "description": "Masaż twarzy to delikatny zabieg, który poprawia krążenie krwi i limfy w skórze, pomagając w usuwaniu toksyn oraz redukcji opuchlizny. Regularne wykonywanie masażu twarzy może ujędrnić skórę, wygładzić zmarszczki i przywrócić jej zdrowy blask. Zabieg ten działa relaksująco na mięśnie twarzy, zmniejszając napięcie i stres. Stosowane techniki, takie jak okrężne ruchy, delikatne ugniatanie i uciskanie, pomagają poprawić elastyczność skóry. Masaż można wykonać zarówno na sucho, jak i przy użyciu specjalnych olejków lub kremów nawilżających."
+    },
+    "classic": {
+      "title": "Masaż klasyczny",
+      "description": "Klasyczny masaż to popularna metoda terapii ciała, która wykorzystuje różnorodne techniki, takie jak głaskanie, ugniatanie, rozcieranie i wibracje. Zabieg ten poprawia krążenie krwi, zmniejsza napięcie mięśni i wspomaga regenerację organizmu. Jest skuteczny w łagodzeniu bólu, sztywności oraz zmęczenia. Klasyczny masaż można dostosować do potrzeb, oferując zarówno delikatne, jak i intensywne działanie. Często stosuje się go w celach zdrowotnych i ogólnego wzmocnienia ciała."
+    },
+    "relaxing": {
+      "title": "Masaż relaksacyjny",
+      "description": "Relaksacyjny masaż to zabieg, który pomaga w odprężeniu ciała i umysłu poprzez delikatne techniki, takie jak głaskanie i lekkie ugniatanie. Jego głównym celem jest redukcja stresu, zmęczenia i napięcia nerwowego. Masaż ten sprzyja poprawie samopoczucia, łagodząc napięcie mięśni oraz wspomagając regenerację organizmu. Wykonuje się go w spokojnym tempie, często z użyciem olejków aromatycznych, które wzmacniają efekt relaksacji. Jest idealnym wyborem dla osób, które potrzebują wyciszenia i harmonii."
+    },
+    "therapeutic": {
+      "title": "Masaż terapeutyczny",
+      "description": "Masaż terapeutyczny to specjalistyczny zabieg mający na celu rozwiązanie określonych problemów zdrowotnych lub fizycznych dolegliwości. Łączy techniki takie jak głęboka manipulacja tkanek, terapia punktów spustowych oraz rozciąganie, aby skupić się na problematycznych obszarach. Masaż ten pomaga w łagodzeniu przewlekłego bólu, poprawie ruchomości i wspieraniu gojenia się uszkodzonych mięśni lub stawów. Często zaleca się go w przypadku bólu pleców, sztywności mięśni czy kontuzji sportowych. Masaż terapeutyczny jest dostosowany do indywidualnych potrzeb, zapewniając ulgę i długotrwałe korzyści dla ogólnego zdrowia fizycznego."
+    },
+    "lymphaticDrainage": {
+      "title": "Masaż limfatyczny",
+      "description": "Masaż limfatyczny (limfodrenaż) to delikatna i rytmiczna technika mająca na celu pobudzenie układu limfatycznego, wspomagając usuwanie toksyn i nadmiaru płynów z organizmu. Tego rodzaju masaż poprawia krążenie, zmniejsza obrzęki i wspiera funkcjonowanie układu odpornościowego. Jest szczególnie polecany osobom po operacjach, zmagającym się z obrzękiem limfatycznym lub zatrzymywaniem wody w organizmie. Masaż wykorzystuje lekkie, precyzyjne ruchy, które wspierają naturalny przepływ limfy. Regularne zabiegi pomagają poprawić ogólny stan zdrowia i zapewniają uczucie lekkości."
+    }
+  },
+  "masseur": {
+    "title": "O masażyście",
+    "name": "O mnie",
+    "description": "Nazywam się Viktor Vilkhov i szczerze uwielbiam swoją pracę! Każdego dnia pomagam ludziom pozbyć się bólu, stresu i napięcia, przywracając im zdrowie i lekkość. Dla mnie to nie tylko zawód, ale prawdziwe powołanie. Widok szczęśliwych twarzy klientów po sesji to dla mnie największa nagroda.\n\nUkończyłem kurs masażu w kolegium medycznym na Ukrainie, gdzie moim nauczycielem był profesor nauk medycznych. Nieustannie doskonalę swoje umiejętności i uczę się nowych metod. Obecnie posiadam wiedzę na temat punktów spustowych, technik terapii manualnej, mobilizacji stawów i tkanek miękkich, masażu bańkami oraz kinesiotapingu. Przez sześć lat praktyki stworzyłem własną unikalną metodę masażu, która łączy klasyczne i lecznicze techniki z indywidualnym podejściem do każdego klienta.\n\nMam duże doświadczenie w pracy z różnymi klientami: pomagałem przywrócić ruchomość po urazach i operacjach, szybko usuwałem bóle pleców, głowy i kończyn. Moi klienci często mówią, że po masażu dosłownie „unoszą się w powietrzu”. Nawet jedna sesja wystarczy, aby poczuć się lepiej — zarówno fizycznie, jak i emocjonalnie.\n\nPrzez ten czas zaufało mi ponad dwa tysiące osób. Niedawno zacząłem przekazywać swoją wiedzę uczniom, aby jeszcze więcej osób mogło skorzystać z korzyści masażu. Jeśli chcesz przywrócić sobie lekkość, komfort i radość ruchu — umów się na sesję już dziś. Twoje zdrowie jest w dobrych rękach!"
+  },
+  "footer": {
+    "bookButton": "Zarezerwuj teraz"
+  }
+}

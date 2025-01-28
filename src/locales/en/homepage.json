@@ -1,0 +1,32 @@
+{
+  "massages": {
+    "face": {
+      "title": "Face Massage",
+      "description": "Facial massage is a gentle procedure that enhances blood and lymph circulation in the skin, aiding in the removal of toxins and reducing puffiness. Regular facial massages can firm the skin, smooth out wrinkles, and restore a healthy glow. This treatment relaxes the facial muscles, alleviating tension and stress. Techniques such as circular motions, gentle kneading, and pressing help improve skin elasticity. The massage can be performed dry or with the use of special oils or moisturizing creams."
+    },
+    "classic": {
+      "title": "Classic Massage",
+      "description": "Classic massage is a widely used method of body therapy that includes various techniques such as stroking, kneading, rubbing, and vibrations. The procedure enhances blood circulation, reduces muscle tension, and supports overall recovery. It is effective in alleviating pain, stiffness, and fatigue. Classic massage can be adjusted to individual needs, offering both gentle and deeper effects. It is commonly applied to improve health and maintain a sense of physical well-being."
+    },
+    "relaxing": {
+      "title": "Relaxing Massage",
+      "description": "Relaxation massage is a treatment designed to calm the body and mind using gentle techniques like stroking and light kneading. Its primary goal is to reduce stress, fatigue, and nervous tension. The massage enhances overall well-being by relieving muscle tension and supporting the body's recovery. It is performed at a slow pace, often with the use of aromatic oils that amplify the soothing effect. This is an excellent option for those seeking balance and tranquility."
+    },
+    "therapeutic": {
+      "title": "Therapeutic Massage",
+      "description": "Therapeutic massage is a specialized treatment aimed at addressing specific health issues or physical discomforts. It combines techniques such as deep tissue manipulation, trigger point therapy, and stretching to target problem areas. This massage helps relieve chronic pain, improve mobility, and promote the healing of injured muscles or joints. It is often recommended for conditions such as back pain, muscle stiffness, or sports injuries. Therapeutic massage is tailored to the individual’s needs, providing both relief and long-term benefits for overall physical well-being."
+    },
+    "lymphaticDrainage": {
+      "title": "Lymphatic Drainage Massage",
+      "description": "Lymphatic drainage massage is a gentle and rhythmic technique designed to stimulate the lymphatic system, helping to remove toxins and excess fluid from the body. This type of massage promotes better circulation, reduces swelling, and supports the immune system. It is particularly beneficial for individuals recovering from surgery, dealing with lymphedema, or experiencing water retention. The massage uses light, precise movements to encourage the natural flow of lymph. Regular sessions can improve overall health and provide a sense of lightness and well-being."
+    }
+  },
+  "masseur": {
+    "title": "About the Masseur",
+    "name": "About Me",
+    "description": "My name is Viktor Vilkhov, and I truly love my work! Every day, I help people relieve pain, stress, and tension, restoring their health and lightness. For me, this is not just a profession but a true calling. Seeing the happy faces of clients after a session is the greatest reward for me.\n\nI graduated from a massage course at a medical college in Ukraine, where my teacher was a professor of medical sciences. I constantly improve my skills and learn new techniques. Today, I possess knowledge of trigger points, manual therapy techniques, joint and soft tissue mobilization, cupping massage, and kinesiotaping. Over six years of practice, I have developed my own unique massage method, combining classic and therapeutic techniques with an individualized approach to every client.\n\nI have extensive experience working with various clients: restoring mobility after injuries and surgeries, quickly relieving back, head, and limb pain. My clients often say they feel like they’re \"flying\" after a session. Even one session is enough to feel better — both physically and emotionally.\n\nOver the years, more than two thousand people have entrusted me with their health. Recently, I began sharing my knowledge with students so that even more people can experience the benefits of massage. If you want to restore your lightness, comfort, and joy of movement, book a session today. Your health is in good hands!"
+  },
+  "footer": {
+    "bookButton": "Book now"
+  }
+}

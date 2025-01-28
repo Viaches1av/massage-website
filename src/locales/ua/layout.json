@@ -1,0 +1,15 @@
+{
+  "header": {
+    "logo": "SOFIA"
+  },
+  "footer": {
+    "logo": "SOFIA",
+    "bookButton": "Забронюй зараз"
+  },
+  "navigation": {
+    "home": "Головна",
+    "massage": "Масажі",
+    "prices": "Ціни",
+    "contact": "Контакти"
+  }
+}

@@ -1,0 +1,27 @@
+/* src/components/contact-details/ContactDetails.module.css */
+.details {
+  text-align: center;
+}
+
+.details h2 {
+  margin-bottom: 20px;
+}
+
+.details p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+/* .details button {
+  margin-top: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.details button:hover {
+  background-color: #0056b3;
+} */

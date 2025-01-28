@@ -1,0 +1,14 @@
+{
+  "contactPage": {
+    "title": "Kontakt",
+    "address": "Adres",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "bookNow": "Zarezerwuj teraz",
+    "ourLocation": "Nasza lokalizacja",
+    "iframeTitle": "Lokalizacja salonu masażu"
+  },
+  "footer": {
+    "bookButton": "Zarezerwuj teraz"
+  } 
+}

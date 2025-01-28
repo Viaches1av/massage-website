@@ -1,0 +1,35 @@
+/* src/components/prices-info/PricesInfo.module.css */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  border: 1px solid #d4cfc4; /* Мягкий бежевый для границ */
+  padding: 12px 16px;
+  text-align: center;
+}
+
+.table th {
+  background-color: #e8dfd3; /* Светлый бежевый для заголовков */
+  font-weight: bold;
+  color: #2c3e50; /* Тёмный текст */
+}
+
+.table tr:nth-child(even) {
+  background-color: #f5efe6; /* Бежевый для чётных строк */
+}
+
+/* .table tr:hover {
+  background-color: #dac6a5; 
+} */
+
+.table td {
+  font-size: 1rem;
+  color: #4a4a33; /* Темный оливковый текст */
+}

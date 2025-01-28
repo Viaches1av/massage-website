@@ -1,0 +1,14 @@
+{
+  "contactPage": {
+    "title": "Contact",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "bookNow": "Book now",
+    "ourLocation": "Our Location",
+    "iframeTitle": "Massage Salon Location"
+  },
+  "footer": {
+    "bookButton": "Book now"
+  } 
+}

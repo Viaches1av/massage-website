@@ -1,0 +1,79 @@
+.section {
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #eee;
+  transition: background-color 1s ease, box-shadow 1s ease; /* Плавный переход */
+}
+
+.section.highlight {
+  background-color: #ffead8; /* Цвет подсветки */
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.5); /* Эффект свечения */
+}
+
+.section.fadeOut {
+  background-color: #eee; /* Возврат к исходному фону */
+  box-shadow: none; /* Убираем эффект свечения */
+}
+.section:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  display: flex;
+  flex-direction: row; /* По умолчанию горизонтальное расположение */
+  align-items: stretch; /* Подстраиваем изображение под высоту текста */
+  gap: 20px;
+}
+
+.imageContainer {
+  flex: 1; /* Изображение занимает 1/3 карточки */
+  max-width: 30%;
+}
+
+.image {
+  width: 100%;
+  height: 100%; /* Высота изображения равна высоте контейнера */
+  object-fit: cover; /* Изображение заполняет контейнер */
+  border-radius: 8px;
+}
+
+.content {
+  flex: 2; /* Текст занимает 2/3 карточки */
+}
+
+.content h2 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+  color: #611f24;
+}
+
+.content p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Адаптация для средних экранов (например, планшеты) */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column; /* Изображение сверху */
+  }
+
+  .imageContainer {
+    max-width: 100%; /* Изображение занимает всю ширину */
+  }
+
+  .image {
+    height: auto; /* Подстраиваем высоту под ширину */
+  }
+}
+
+/* Адаптация для маленьких экранов (например, телефоны) */
+@media (max-width: 480px) {
+  .imageContainer {
+    display: none; /* Убираем изображение */
+  }
+}

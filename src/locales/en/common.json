@@ -1,0 +1,24 @@
+{
+  "modal": {
+    "title": "Book an Appointment",
+    "firstName": "First Name*",
+    "lastName": "Last Name*",
+    "phone": "Phone Number*",
+    "comment": "Comment",
+    "submit": "Submit",
+    "successMessage": "Your booking has been successfully submitted!",
+    "errors": {
+      "firstName": "First name is required",
+      "lastName": "Last name is required",
+      "phone": "Phone number is required",
+      "phoneFormat": "Invalid phone number format"
+    },
+    "emailSubject": "New Booking",
+    "emailBody": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone Number",
+      "comment": "Comment"
+    }
+  }
+}

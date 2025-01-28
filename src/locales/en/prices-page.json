@@ -1,0 +1,16 @@
+{
+  "title": "Price List",
+  "tableHeaders": {
+    "service": "Service",
+    "time": "Duration",
+    "price": "Price"
+  },
+  "services": {
+    "face": "Face Massage",
+    "classic": "Classic Massage",
+    "relaxing": "Relaxing Massage",
+    "therapeutic": "Therapeutic Massage",
+    "lymphaticDrainage": "Lymphatic Drainage Massage"
+  },
+  "minutes": "min"
+}

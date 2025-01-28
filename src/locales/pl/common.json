@@ -1,0 +1,24 @@
+{
+  "modal": {
+    "title": "Umów się na wizytę",
+    "firstName": "Imię*",
+    "lastName": "Nazwisko*",
+    "phone": "Numer telefonu*",
+    "comment": "Komentarz",
+    "submit": "Wyślij",
+    "successMessage": "Twoja rezerwacja została pomyślnie wysłana!",
+    "errors": {
+      "firstName": "Imię jest wymagane",
+      "lastName": "Nazwisko jest wymagane",
+      "phone": "Numer telefonu jest wymagany",
+      "phoneFormat": "Nieprawidłowy format numeru telefonu"
+    },
+    "emailSubject": "Nowa rezerwacja",
+    "emailBody": {
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "phone": "Numer telefonu",
+      "comment": "Komentarz"
+    }
+  }
+}

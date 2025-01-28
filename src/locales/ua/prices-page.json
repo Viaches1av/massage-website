@@ -1,0 +1,16 @@
+{
+  "title": "Прайс-лист",
+  "tableHeaders": {
+    "service": "Послуга",
+    "time": "Тривалість",
+    "price": "Ціна"
+  },
+  "services": {
+    "face": "Масаж обличчя",
+    "classic": "Класичний масаж",
+    "relaxing": "Релаксуючий масаж",
+    "therapeutic": "Терапевтичний масаж",
+    "lymphaticDrainage": "Лімфодренажний масаж"
+  },
+  "minutes": "хв"
+}

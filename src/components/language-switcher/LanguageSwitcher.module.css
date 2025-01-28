@@ -1,0 +1,50 @@
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.button {
+  background-color: #c5a883; /* Теплый бежевый */
+  color: #ffffff;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  padding: 9px 13px; 
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+  background-color: #e0c7a2;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  left: -0%;
+  margin-top: 6px;
+  background-color: #f5e8d5; /* Светлый бежевый */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px 8px 0 0;
+  list-style: none;
+  z-index: 1000;
+  text-align: center;
+}
+
+.menu li {
+  padding: 10px 23.79px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+  border-top: 1px solid #c5a883;
+  color: #2c3e50;
+}
+
+.menu li:hover {
+  background-color: #dac6a5; /* Бежевый при наведении */
+  color: #2c3e50;
+}

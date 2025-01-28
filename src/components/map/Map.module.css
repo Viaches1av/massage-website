@@ -1,0 +1,13 @@
+/* src/components/map/Map.module.css */
+.map {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.map h2 {
+  margin-bottom: 20px;
+}
+
+.map iframe {
+  border-radius: 10px;
+}
