@@ -1,12 +1,12 @@
 {
   "modal": {
-    "title": "Umów się na wizytę",
+    "title": "Zamówienie rozmowy",
     "firstName": "Imię*",
     "lastName": "Nazwisko*",
     "phone": "Numer telefonu*",
     "comment": "Komentarz",
     "submit": "Wyślij",
-    "successMessage": "Twoja rezerwacja została pomyślnie wysłana!",
+    "successMessage": "Twoje zgłoszenie zostało pomyślnie wysłane!",
     "errors": {
       "firstName": "Imię jest wymagane",
       "lastName": "Nazwisko jest wymagane",
@@ -19,6 +19,13 @@
       "lastName": "Nazwisko",
       "phone": "Numer telefonu",
       "comment": "Komentarz"
-    }
+    },
+    "placeholders": {
+      "firstName": "Jan",
+      "lastName": "Kowalski",
+      "phone": "+48123456789",
+      "comment": "Napisz, co Cię niepokoi..."
+    },
+    "tooltipText": "Możesz napisać w komentarzu wszystko, co Cię niepokoi, a my oddzwonimy do Ciebie jak najszybciej. Jeśli dokładnie wiesz, czego chcesz i kiedy, możesz przejść na Booksy i zarezerwować najbliższy dostępny termin oraz wybraną procedurę."
   }
 }

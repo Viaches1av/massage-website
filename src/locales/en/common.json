@@ -1,24 +1,31 @@
 {
   "modal": {
-    "title": "Book an Appointment",
+    "title": "Request a Call",
     "firstName": "First Name*",
     "lastName": "Last Name*",
     "phone": "Phone Number*",
     "comment": "Comment",
     "submit": "Submit",
-    "successMessage": "Your booking has been successfully submitted!",
+    "successMessage": "Your request has been successfully sent!",
     "errors": {
       "firstName": "First name is required",
       "lastName": "Last name is required",
       "phone": "Phone number is required",
       "phoneFormat": "Invalid phone number format"
     },
-    "emailSubject": "New Booking",
+    "emailSubject": "New Reservation",
     "emailBody": {
       "firstName": "First Name",
       "lastName": "Last Name",
       "phone": "Phone Number",
       "comment": "Comment"
-    }
+    },
+    "placeholders": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "phone": "+1234567890",
+      "comment": "Write what concerns you..."
+    },
+    "tooltipText": "You can write in the comment whatever concerns you and we will call you back as soon as possible. If you know exactly what you want and when, you can go to Booksy and book the nearest available time and desired procedure."
   }
 }

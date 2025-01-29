@@ -2,19 +2,16 @@ import { useTranslation } from 'react-i18next';
 import styles from './Header.module.css';
 import Navigation from '../navigation/Navigation';
 import LanguageSwitcher from '../language-switcher/LanguageSwitcher';
+import logo from '../../assets/images/logo.png'; // Импорт изображения
 
 const Header = () => {
     const { t } = useTranslation('layout');
-    console.log('Rendering Header...'); // Проверка рендера компонента
-
-    const logoText = t('header.logo', { defaultValue: 'Default Logo' }); // Добавлен fallback
 
     return (
         <header className={styles.header}>
             <div className={styles['header-content']}>
                 <a href="/" className={styles.logo}>
-                    <span className={styles['logo-text']}>{logoText}</span>
-                    {/* <span className={styles['logo-icon']}>✨</span> */}
+                    <img src={logo} alt={t('header.logo', { defaultValue: 'SOFIA' })} className={styles['logo-image']} />
                 </a>
                 <Navigation />
                 <div className={styles.switchers}>

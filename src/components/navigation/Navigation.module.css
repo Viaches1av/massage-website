@@ -98,23 +98,25 @@
 .menu a {
   text-decoration: none;
   font-size: 24px;
-  color: #2c3e50; /* Тёмный цвет текста */
+  color: #9c856a;
   padding: 12px 24px;
   transition: color 0.3s ease;
 }
 
 .menu a:hover {
-  color: #000; /* Бежевый при наведении */
+  color: #777;
 }
 
 .menu .active {
   font-weight: bold;
-  color: #4a4a33 ;
+  color: #9c856a;
   text-decoration: underline;
 }
+
 .menu a.active:hover {
-  color: #4a4a33 ;
+  color: #9c856a;
 }
+
 /* Скрытие бургер-меню на больших экранах */
 @media (min-width: 768px) {
   .burger {
@@ -135,6 +137,19 @@
 
   .menu a {
     font-size: 16px;
-    color: #2c3e50;
+    color: #ece6ce
+    ;
   }
+
+  .menu a:hover {
+    color: #fff;
+  }
+
+  .menu .active {
+    color: #ece6ce;
+  }
+  .menu a.active:hover {
+    color: #ece6ce;
+  }
+
 }

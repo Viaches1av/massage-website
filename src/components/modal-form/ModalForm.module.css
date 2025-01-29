@@ -1,3 +1,4 @@
+/* Overlay */
 .overlay {
   position: fixed;
   top: 0;
@@ -12,6 +13,7 @@
   backdrop-filter: blur(5px);
 }
 
+/* Modal */
 .modal {
   background-color: #f5e8d5; /* Светлый бежевый */
   padding: 24px;
@@ -27,6 +29,7 @@
   to { opacity: 1; transform: scale(1); }
 }
 
+/* Close Button */
 .closeButton {
   position: absolute;
   top: 12px;
@@ -43,28 +46,104 @@
   color: #c5a883;
 }
 
+/* Form */
 .form {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
+/* Form Group */
 .formGroup {
   display: flex;
   flex-direction: column;
+  position: relative; /* Для позиционирования подсказки */
 }
 
+/* Inputs and Textarea */
+.input,
+.textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #a18b64; /* Теплый бежевый */
+  outline: none;
+}
+
+/* Fixed Size for Textarea */
+.textarea {
+  height: 100px; /* Фиксированная высота */
+  resize: none; /* Отключение изменения размера */
+}
+
+/* Tooltip Container */
+.tooltipContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 8px;
+  position: relative; /* Для позиционирования подсказки */
+}
+
+/* Info Icon */
+.infoIcon {
+  margin-left: 8px;
+  cursor: pointer;
+  color: #a18b64;
+  transition: color 0.3s ease;
+}
+
+.infoIcon:hover {
+  color: #c5a883;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-top: 4px;
+  z-index: 1001;
+  width: 300px;
+  font-size: 13px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.tooltip a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.tooltip a:hover {
+  color: #c5a883;
+}
+
+/* Error Message */
 .error {
   color: #c0392b;
   font-size: 13px;
+  margin-top: 4px;
 }
 
+/* Success Message */
 .success {
   color: #27ae60;
   font-size: 15px;
   margin-top: 12px;
 }
 
+/* Submit Button */
 .submitButton {
   background-color: #a18b64; /* Теплый бежевый */
   color: white;
@@ -72,10 +151,17 @@
   padding: 12px;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 16px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .submitButton:hover {
   background-color: #c5a883;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.submitButton:disabled {
+  background-color: #e0d5c8;
+  cursor: not-allowed;
+  box-shadow: none;
 }

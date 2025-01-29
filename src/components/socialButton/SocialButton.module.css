@@ -14,10 +14,12 @@
 
 .button:hover {
   transform: scale(1.1);
-  background-color: #3498db;
+  /* background-color: #3498db; */
 }
 
 .icon {
-  width: 20px;
-  height: 20px;
+  width: 34px;
+  height: 34px;
+  fill: currentColor;
+  color: #6b5b44; /* Цвет можно изменить */
 }

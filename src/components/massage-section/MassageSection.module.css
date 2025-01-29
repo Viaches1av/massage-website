@@ -8,8 +8,8 @@
 }
 
 .section.highlight {
-  background-color: #ffead8; /* Цвет подсветки */
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.5); /* Эффект свечения */
+  background-color: #e8dfd3; /* Цвет подсветки */
+  box-shadow: 0 0 10px rgba(241, 226, 198, 0.5);
 }
 
 .section.fadeOut {
@@ -44,9 +44,31 @@
 }
 
 .content h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 0 0 10px;
   font-size: 1.5rem;
-  color: #611f24;
+  color: #6b5b44;
+  flex-grow: 1;
+}
+
+.priceLink {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: #6b5b44;
+  transition: transform 0.2s ease-in-out;
+}
+
+.priceLink:hover .icon {
+  transform: scale(1.1);
 }
 
 .content p {

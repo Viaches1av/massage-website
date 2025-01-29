@@ -1,7 +1,6 @@
 .footer {
   width: 100%;
-  background-color: #dac6a5; /* Бежевый фон для мягкого стиля */
-  padding: 20px 0;
+  background-color: #6b5b44;
   box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -22,18 +21,12 @@
   align-items: center;
   gap: 8px;
   text-decoration: none;
-  color: #9c856a; /* Бежево-коричневый */
-  font-size: 24px;
-  font-weight: bold;
 }
 
-.logo-text {
-  font-family: 'Arial', sans-serif;
-}
-
-.logo-icon {
-  font-size: 20px;
-  color: #d4b89b; /* Мягкий бежевый */
+.logo-image {
+  height: 70px; /* Устанавливаем высоту логотипа */
+  width: auto; /* Автоматически подстраиваем ширину */
+  object-fit: contain;
 }
 
 .socials {

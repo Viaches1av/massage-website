@@ -22,6 +22,12 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: #6b5b44; /* Цвет, который ты хочешь */
+}
+
 .menu {
   position: absolute;
   top: 100%;

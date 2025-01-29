@@ -39,7 +39,10 @@ const LanguageSwitcher = () => {
                 aria-expanded={isMenuOpen}
                 aria-label="Switch language"
             >
-                🌐 {currentLanguage.toUpperCase()}
+                <svg className={styles.icon} width="20" height="20">
+                    <use xlinkHref="/sprite.svg#languages"></use>
+                </svg>
+                {currentLanguage.toUpperCase()}
             </button>
             {isMenuOpen && (
                 <ul className={styles.menu}>

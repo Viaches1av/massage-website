@@ -1,28 +1,56 @@
 .button {
-  background-color: #ece6ce; /* Светлый фон */
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+margin: 0 auto;
+  background-color: #e8dfd3; /* Светлый фон */
   color: #2c3e50; /* Тёмный текст */
   font-size: 16px;
   font-weight: bold;
-  padding: 14px 28px;
-  border: 2px solid #828f59; /* Оливковая рамка */
+  padding: 14px 20px;
+  border: 2px solid #d4cfc4; /* Оливковая рамка */
   border-radius: 20px; /* Закругленные углы для мягкого вида */
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .button:hover {
-  background-color: #dac6a5; /* Бежевый при наведении */
+  background-color: #f5efe6; /* Бежевый при наведении */
   color: #2c3e50; /* Контрастный текст */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .button:active {
   transform: scale(0.93);
-  background-color: #828f59; /* Оливковый при нажатии */
-  color: #ffffff;
+  background-color: #d4cfc4;
 }
 
 .button:focus {
   outline: none;
-  box-shadow: 0 0 10px #dac6a5;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor !important;
+  fill: none !important;
+}
+
+@keyframes ring {
+  0% { transform: rotate(0); }
+  15% { transform: rotate(-15deg); }
+  30% { transform: rotate(15deg); }
+  45% { transform: rotate(-10deg); }
+  60% { transform: rotate(10deg); }
+  75% { transform: rotate(-5deg); }
+  90% { transform: rotate(5deg); }
+  100% { transform: rotate(0); }
+}
+
+.ringing {
+  transition: transform 0.2s ease-in-out;
+}
+
+.button:hover .ringing {
+  animation: ring 0.5s ease-in-out infinite;
 }
