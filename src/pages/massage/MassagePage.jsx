@@ -1,15 +1,23 @@
-import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+// src/pages/massage-page/MassagePage.jsx
+import React, { useEffect, useState, useRef} from 'react';
+import { useLocation } from 'react-router-dom'; // Переносим useLocation из react-router-dom
 import styles from './MassagePage.module.css';
 import MassageSection from '../../components/massage-section/MassageSection';
 import { useTranslation } from 'react-i18next';
-import { massages } from '../../data/massages';
+import { massages as importedMassages } from '../../data/massages';
 
 const MassagePage = () => {
   const { t } = useTranslation('massage-page');
-  const location = useLocation();
+  const location = useLocation(); // Теперь useLocation корректно работает
   const [highlightedId, setHighlightedId] = useState(null);
   const [isFading, setIsFading] = useState(false);
+
+  // Прямое присвоение без useMemo
+  const massages = importedMassages;
+
+  // Refs для хранения ID таймаутов для корректной очистки
+  const scrollTimeoutRef = useRef(null);
+  // Удалены: fadeTimeoutRef, removeHighlightTimeoutRef
 
   // Считываем параметр selected из URL
   useEffect(() => {
@@ -24,7 +32,7 @@ const MassagePage = () => {
   // Прокрутка после рендеринга карточек
   useEffect(() => {
     if (highlightedId) {
-      const timeout = setTimeout(() => {
+      scrollTimeoutRef.current = setTimeout(() => {
         const element = document.getElementById(highlightedId);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -33,7 +41,10 @@ const MassagePage = () => {
         }
       }, 200);
 
-      return () => clearTimeout(timeout);
+      // Очистка таймаута при размонтировании или изменении highlightedId
+      return () => {
+        clearTimeout(scrollTimeoutRef.current);
+      };
     }
   }, [highlightedId]);
 
@@ -42,13 +53,22 @@ const MassagePage = () => {
     if (highlightedId) {
       const fadeTimeout = setTimeout(() => {
         setIsFading(true); // Начинаем угасание
-        setTimeout(() => {
+
+        const removeHighlightTimeout = setTimeout(() => {
           setHighlightedId(null); // Убираем подсветку полностью
           setIsFading(false);
         }, 1000); // Время угасания совпадает с CSS transition
+
+        // Очистка таймаутов при размонтировании или изменении highlightedId
+        return () => {
+          clearTimeout(removeHighlightTimeout);
+        };
       }, 2000); // Задержка перед началом угасания
 
-      return () => clearTimeout(fadeTimeout);
+      // Очистка таймаута при размонтировании или изменении highlightedId
+      return () => {
+        clearTimeout(fadeTimeout);
+      };
     }
   }, [highlightedId]);
 
@@ -69,4 +89,5 @@ const MassagePage = () => {
   );
 };
 
-export default MassagePage;
+// (Опционально) Оборачиваем компонент в React.memo для оптимизации
+export default React.memo(MassagePage);

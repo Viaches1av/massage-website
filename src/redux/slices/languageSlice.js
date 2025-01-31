@@ -1,7 +1,10 @@
+// languageSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
+const savedLanguage = localStorage.getItem('language');
+
 const initialState = {
-  language: 'ru', // Язык по умолчанию
+  language: savedLanguage || 'pl',
 };
 
 const languageSlice = createSlice({
@@ -9,9 +12,10 @@ const languageSlice = createSlice({
   initialState,
   reducers: {
     setLanguage: (state, action) => {
-      const supportedLanguages = ['ru', 'ua', 'pl'];
+      const supportedLanguages = ['pl', 'ua', 'en'];
       if (supportedLanguages.includes(action.payload)) {
-        state.language = action.payload; // Устанавливаем язык, если он поддерживается
+        state.language = action.payload;
+        localStorage.setItem('language', action.payload);
       }
     },
   },

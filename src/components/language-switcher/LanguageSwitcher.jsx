@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+// LanguageSwitcher.jsx
+import { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './LanguageSwitcher.module.css';
 
 const LanguageSwitcher = () => {
     const { i18n } = useTranslation();
-    const [currentLanguage, setCurrentLanguage] = useState(i18n.resolvedLanguage || 'pl'); // Начальный язык
+    const [currentLanguage, setCurrentLanguage] = useState(i18n.resolvedLanguage || 'pl');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const availableLanguages = ['pl', 'en', 'ua'];
 
@@ -20,16 +21,16 @@ const LanguageSwitcher = () => {
         };
     }, [i18n]);
 
-    const toggleMenu = () => {
+    const toggleMenu = useCallback(() => {
         setIsMenuOpen((prev) => !prev);
-    };
+    }, []);
 
-    const changeLanguage = (lng) => {
+    const changeLanguage = useCallback((lng) => {
         if (lng !== currentLanguage) {
             i18n.changeLanguage(lng);
         }
-        setIsMenuOpen(false); // Закрыть меню после выбора языка
-    };
+        setIsMenuOpen(false);
+    }, [i18n, currentLanguage]);
 
     return (
         <div className={styles.container}>
@@ -60,5 +61,7 @@ const LanguageSwitcher = () => {
         </div>
     );
 };
+
+LanguageSwitcher.propTypes = {};
 
 export default LanguageSwitcher;

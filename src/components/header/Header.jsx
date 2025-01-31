@@ -1,8 +1,10 @@
+// Header.jsx
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import Navigation from '../navigation/Navigation';
 import LanguageSwitcher from '../language-switcher/LanguageSwitcher';
-import logo from '../../assets/images/logo.png'; // Импорт изображения
+import logo from '../../assets/images/logo.png';
 
 const Header = () => {
     const { t } = useTranslation('layout');
@@ -10,9 +12,13 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles['header-content']}>
-                <a href="/" className={styles.logo}>
-                    <img src={logo} alt={t('header.logo', { defaultValue: 'SOFIA' })} className={styles['logo-image']} />
-                </a>
+                <NavLink to="/" className={styles.logo}>
+                    <img
+                        src={logo}
+                        alt={t('header.logo', { defaultValue: 'SOFIA' })}
+                        className={styles['logo-image']}
+                    />
+                </NavLink>
                 <Navigation />
                 <div className={styles.switchers}>
                     <LanguageSwitcher />
@@ -21,5 +27,7 @@ const Header = () => {
         </header>
     );
 };
+
+Header.propTypes = {};
 
 export default Header;

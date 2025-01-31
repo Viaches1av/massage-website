@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "vite build && vercel deploy"
   },
   "dependencies": {
     "@react-google-maps/api": "^2.20.5",
@@ -15,6 +16,7 @@
     "formik": "^2.4.6",
     "i18next": "^24.2.0",
     "i18next-browser-languagedetector": "^8.0.2",
+    "i18next-http-backend": "^3.0.2",
     "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.474.0",
     "react": "^18.3.1",
@@ -23,6 +25,7 @@
     "react-i18next": "^15.4.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.1",
+    "reselect": "^5.1.1",
     "yup": "^1.6.1"
   },
   "devDependencies": {

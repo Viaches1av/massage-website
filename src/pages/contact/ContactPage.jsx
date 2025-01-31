@@ -1,32 +1,26 @@
 // src/pages/contact-page/ContactPage.jsx
+import React, { useState, useMemo, useCallback } from 'react';
 import styles from './ContactPage.module.css';
-import { useState } from 'react';
 import { addresses } from '../../data/massages';
 import ContactDetails from '../../components/contact-details/ContactDetails';
-// import Map from '../../components/map/Map';
 import ModalForm from '../../components/modal-form/ModalForm';
 
 const ContactPage = () => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const [selectedAddress, setSelectedAddress] = useState(addresses[0]); // Состояние для выбранного адреса
+  
+  // Поскольку selectedAddress неизменяем, используем useMemo или просто константу
+  const selectedAddress = useMemo(() => addresses[0], []);
 
-  const handleModalToggle = () => {
-    setModalOpen(!isModalOpen);
-  };
-
-  const handleAddressChange = (id) => {
-    const newAddress = addresses.find((address) => address.id === id);
-    setSelectedAddress(newAddress);
-  };
-
+  // Используем useCallback для мемоизации функции toggleModal
+  const handleModalToggle = useCallback(() => {
+    setModalOpen(prev => !prev);
+  }, []);
+  
   return (
     <>
       <div className={styles.container}>
         <ContactDetails
-          addresses={addresses}
-          selectedAddress={selectedAddress}
-          onAddressChange={handleAddressChange}
-          onBookClick={handleModalToggle}
+          selectedAddress={selectedAddress} // Передаём только необходимый пропс
         />
         {/* <Map coordinates={selectedAddress.coordinates} /> */}
       </div>
@@ -35,4 +29,5 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+// (Опционально) Оборачиваем компонент в React.memo для оптимизации
+export default React.memo(ContactPage);

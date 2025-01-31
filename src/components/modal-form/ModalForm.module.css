@@ -98,6 +98,7 @@
   cursor: pointer;
   color: #a18b64;
   transition: color 0.3s ease;
+  border: none;
 }
 
 .infoIcon:hover {

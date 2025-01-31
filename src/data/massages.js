@@ -47,9 +47,9 @@ export const massages = [
 export const addresses = [
   {
     id: 1,
-    name: "Салон Sophia 1",
-    address: "ул. Красная, 12, Варшава",
-    coordinates: { lat: 52.22977, lng: 21.01178 },
+    name: "Sophia 1",
+    address: "Niepodległości 24, 21-040 Świdnik",
+    coordinates: { lat: 51.219409, lng: 22.704860 },
   },
   {
     id: 2,

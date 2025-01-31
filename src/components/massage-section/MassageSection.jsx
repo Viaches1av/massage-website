@@ -1,3 +1,5 @@
+// MassageSection.jsx
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './MassageSection.module.css';
@@ -7,15 +9,19 @@ const MassageSection = ({
   title,
   description,
   image,
-  isHighlighted = false, // Значение по умолчанию
-  isFading = false, // Значение по умолчанию
+  isHighlighted = false,
+  isFading = false,
 }) => {
+  const sectionClasses = useMemo(() => {
+    return `${styles.section} ${isHighlighted ? styles.highlight : ''} ${
+      isFading ? styles.fadeOut : ''
+    }`;
+  }, [isHighlighted, isFading]);
+
   return (
     <section
       id={id}
-      className={`${styles.section} ${isHighlighted ? styles.highlight : ''} ${
-        isFading ? styles.fadeOut : ''
-      }`}
+      className={sectionClasses}
     >
       <div className={styles.card}>
         <div className={styles.imageContainer}>
@@ -24,8 +30,8 @@ const MassageSection = ({
         <div className={styles.content}>
           <h2>
             {title}
-            <Link to="/prices" className={styles.priceLink}>
-              <svg className={styles.icon} width="20" height="20">
+            <Link to="/prices" className={styles.priceLink} aria-label="View Prices">
+              <svg className={styles.icon} width="20" height="20" aria-hidden="true">
                 <use xlinkHref="/sprite.svg#price"></use>
               </svg>
             </Link>
@@ -46,4 +52,4 @@ MassageSection.propTypes = {
   isFading: PropTypes.bool,
 };
 
-export default MassageSection;
+export default React.memo(MassageSection);

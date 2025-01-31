@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef, useMemo } from "react";
+// src/components/gallery/Gallery.jsx
+import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
 import styles from "./Gallery.module.css";
 
@@ -8,6 +9,10 @@ const Gallery = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const sliderRef = useRef(null);
+
+  // Refs для хранения ID таймаутов для корректной очистки
+  const resizeTimeoutRef = useRef(null);
+  // Удалены: scrollTimeoutRef, fadeTimeoutRef, removeHighlightTimeoutRef
 
   // Определяем общее количество изображений
   const totalImages = images.length;
@@ -20,7 +25,7 @@ const Gallery = ({ images }) => {
 
   const bigLength = extendedImages.length;
 
-  // 3. Следим за шириной экрана и изменяем количество видимых слайдов
+  // 3. Следим за шириной экрана и изменяем количество видимых слайдов с дебаунсом
   useEffect(() => {
     const updateVisibleSlides = () => {
       const width = window.innerWidth;
@@ -33,11 +38,24 @@ const Gallery = ({ images }) => {
       }
     };
 
+    // Дебаунсинг обработчика resize
+    const handleResize = () => {
+      if (resizeTimeoutRef.current) {
+        clearTimeout(resizeTimeoutRef.current);
+      }
+      resizeTimeoutRef.current = setTimeout(() => {
+        updateVisibleSlides();
+      }, 150); // Задержка 150ms
+    };
+
     updateVisibleSlides();
-    window.addEventListener("resize", updateVisibleSlides);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", updateVisibleSlides);
+      window.removeEventListener("resize", handleResize);
+      if (resizeTimeoutRef.current) {
+        clearTimeout(resizeTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -47,22 +65,34 @@ const Gallery = ({ images }) => {
     setCurrentIndex(startIndex);
   }, [bigLength]);
 
-  // 5. Обновляем позицию слайдера при изменении currentIndex
-  useEffect(() => {
-    if (sliderRef.current) {
-      sliderRef.current.style.transition = "transform 0.3s ease-in-out";
-      const offsetIndex = currentIndex - Math.floor(visibleSlides / 2);
+  // 7. Телепортируемся без анимации
+  const jumpWithoutAnimation = useCallback(
+    (newIndex) => {
+      if (!sliderRef.current) return;
+
+      sliderRef.current.style.transition = "none";
+      setCurrentIndex(newIndex);
+
       const slideWidthPercent = 100 / visibleSlides;
+      const offsetIndex = newIndex - Math.floor(visibleSlides / 2);
       sliderRef.current.style.transform = `translateX(-${offsetIndex * slideWidthPercent}%)`;
-    }
-  }, [currentIndex, visibleSlides]);
+
+      // Запускаем перерисовку на следующем кадре, чтобы применить transition снова
+      requestAnimationFrame(() => {
+        if (sliderRef.current) {
+          sliderRef.current.style.transition = "transform 0.3s ease-in-out";
+        }
+      });
+    },
+    [visibleSlides]
+  );
 
   // 6. Обрабатываем завершение анимации
-  const handleTransitionEnd = () => {
+  const handleTransitionEnd = useCallback(() => {
     if (!sliderRef.current) return;
 
-    const minEdge = 2;
-    const maxEdge = bigLength - 2;
+    const minEdge = duplicationFactor;
+    const maxEdge = bigLength - duplicationFactor;
     const midIndex = Math.floor(bigLength / 2);
 
     if (currentIndex <= minEdge) {
@@ -70,34 +100,26 @@ const Gallery = ({ images }) => {
     } else if (currentIndex >= maxEdge) {
       jumpWithoutAnimation(midIndex);
     }
-  };
+  }, [currentIndex, bigLength, duplicationFactor, jumpWithoutAnimation]);
 
-  // 7. Телепортируемся без анимации
-  const jumpWithoutAnimation = (newIndex) => {
-    if (!sliderRef.current) return;
-
-    sliderRef.current.style.transition = "none";
-    setCurrentIndex(newIndex);
-
-    const offsetIndex = newIndex - Math.floor(visibleSlides / 2);
-    const slideWidthPercent = 100 / visibleSlides;
-    sliderRef.current.style.transform = `translateX(-${offsetIndex * slideWidthPercent}%)`;
-
-    requestAnimationFrame(() => {
-      if (sliderRef.current) {
-        sliderRef.current.style.transition = "transform 0.3s ease-in-out";
-      }
-    });
-  };
+  // 5. Обновляем позицию слайдера при изменении currentIndex
+  useEffect(() => {
+    if (sliderRef.current) {
+      const slideWidthPercent = 100 / visibleSlides;
+      const offsetIndex = currentIndex - Math.floor(visibleSlides / 2);
+      sliderRef.current.style.transition = "transform 0.3s ease-in-out";
+      sliderRef.current.style.transform = `translateX(-${offsetIndex * slideWidthPercent}%)`;
+    }
+  }, [currentIndex, visibleSlides]);
 
   // 8. Кнопки вперёд/назад
-  const nextImg = () => {
+  const nextImg = useCallback(() => {
     setCurrentIndex((prev) => prev + 1);
-  };
+  }, []);
 
-  const prevImg = () => {
+  const prevImg = useCallback(() => {
     setCurrentIndex((prev) => prev - 1);
-  };
+  }, []);
 
   // 9. Условный рендер после всех хуков
   if (totalImages === 0) {
@@ -107,7 +129,11 @@ const Gallery = ({ images }) => {
   // 10. Основной рендер
   return (
     <div className={styles.gallery}>
-      <button className={styles.arrow} onClick={prevImg}>
+      <button
+        className={styles.arrow}
+        onClick={prevImg}
+        aria-label="Previous Slide"
+      >
         ❮
       </button>
 
@@ -127,7 +153,9 @@ const Gallery = ({ images }) => {
             return (
               <div
                 key={index}
-                className={`${styles.imageWrapper} ${isCenter ? styles.center : ""}`}
+                className={`${styles.imageWrapper} ${
+                  isCenter ? styles.center : ""
+                }`}
                 style={{
                   transform: `scale(${isCenter ? 0.99 : 0.86})`,
                   opacity:
@@ -142,6 +170,7 @@ const Gallery = ({ images }) => {
                   src={typeof item === "string" ? item : item.image}
                   alt={`Slide ${index + 1}`}
                   className={styles.image}
+                  loading="lazy" // Добавлено для улучшения производительности
                 />
               </div>
             );
@@ -149,7 +178,11 @@ const Gallery = ({ images }) => {
         </div>
       </div>
 
-      <button className={styles.arrow} onClick={nextImg}>
+      <button
+        className={styles.arrow}
+        onClick={nextImg}
+        aria-label="Next Slide"
+      >
         ❯
       </button>
     </div>
@@ -167,4 +200,5 @@ Gallery.propTypes = {
   ).isRequired,
 };
 
-export default Gallery;
+// Оборачиваем компонент в React.memo для оптимизации
+export default React.memo(Gallery);

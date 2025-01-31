@@ -1,5 +1,6 @@
+// ModalForm.jsx
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { useTranslation, Trans } from 'react-i18next';
 import styles from './ModalForm.module.css';
@@ -7,6 +8,34 @@ import { Info } from 'lucide-react';
 
 const ModalForm = ({ onClose }) => {
   const { t } = useTranslation('common');
+
+  const translations = useMemo(() => ({
+    firstNamePlaceholder: t('modal.placeholders.firstName'),
+    lastNamePlaceholder: t('modal.placeholders.lastName'),
+    phonePlaceholder: t('modal.placeholders.phone'),
+    commentPlaceholder: t('modal.placeholders.comment'),
+    closeButtonLabel: t('modal.closeButtonLabel'),
+    title: t('modal.title'),
+    successMessage: t('modal.successMessage'),
+    submitting: t('modal.submitting'),
+    submit: t('modal.submit'),
+    tooltipButtonLabel: t('modal.tooltipButtonLabel'),
+    tooltipText: t('modal.tooltipText', { returnObjects: true }),
+    errors: {
+      firstName: t('modal.errors.firstName'),
+      lastName: t('modal.errors.lastName'),
+      phone: t('modal.errors.phone'),
+      phoneFormat: t('modal.errors.phoneFormat'),
+      submit: t('modal.errors.submit'),
+    },
+    emailSubject: t('modal.emailSubject'),
+    emailBody: {
+      firstName: t('modal.emailBody.firstName'),
+      lastName: t('modal.emailBody.lastName'),
+      phone: t('modal.emailBody.phone'),
+      comment: t('modal.emailBody.comment'),
+    },
+  }), [t]);
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -22,17 +51,44 @@ const ModalForm = ({ onClose }) => {
   const timeoutRef = useRef(null);
   const firstInputRef = useRef(null);
 
+  const validate = useCallback(() => {
+    const newErrors = {};
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = translations.errors.firstName;
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = translations.errors.lastName;
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = translations.errors.phone;
+    } else if (!/^[+]?\d{9,15}$/.test(formData.phone)) {
+      newErrors.phone = translations.errors.phoneFormat;
+    }
+
+    return newErrors;
+  }, [formData, translations.errors]);
+
+  const handleChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  }, []);
+
+  // Удалена функция handleBlur и связанные обработчики onBlur
+
+  const handleKeyDown = useCallback((e) => {
+    if (e.key === 'Escape') {
+      onClose();
+    }
+  }, [onClose]);
+
   useEffect(() => {
     document.body.classList.add('modal-open');
     if (firstInputRef.current) {
       firstInputRef.current.focus();
     }
-
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
 
     document.addEventListener('keydown', handleKeyDown);
 
@@ -43,34 +99,9 @@ const ModalForm = ({ onClose }) => {
       }
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [onClose]);
+  }, [handleKeyDown]);
 
-  const validate = () => {
-    const newErrors = {};
-
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = t('modal.errors.firstName');
-    }
-
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = t('modal.errors.lastName');
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = t('modal.errors.phone');
-    } else if (!/^[+]?\d{9,15}$/.test(formData.phone)) {
-      newErrors.phone = t('modal.errors.phoneFormat');
-    }
-
-    return newErrors;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
 
     const validationErrors = validate();
@@ -80,7 +111,7 @@ const ModalForm = ({ onClose }) => {
     }
 
     setErrors({});
-    setSuccessMessage(t('modal.successMessage'));
+    setSuccessMessage(translations.successMessage);
     setIsLoading(true);
 
     try {
@@ -88,18 +119,19 @@ const ModalForm = ({ onClose }) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          subject: t('modal.emailSubject'),
-          body: `${t('modal.emailBody.firstName')}: ${formData.firstName}\n${t('modal.emailBody.lastName')}: ${formData.lastName}\n${t('modal.emailBody.phone')}: ${formData.phone}\n${t('modal.emailBody.comment')}: ${formData.comment}`
+          subject: translations.emailSubject,
+          body: `${translations.emailBody.firstName}: ${formData.firstName}\n${translations.emailBody.lastName}: ${formData.lastName}\n${translations.emailBody.phone}: ${formData.phone}\n${translations.emailBody.comment}: ${formData.comment}`
         })
       });
 
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Network response was not ok');
       }
 
       // Дополнительная обработка успешного ответа, если необходимо
     } catch (error) {
-      setErrors({ submit: t('modal.errors.submit') });
+      setErrors({ submit: translations.errors.submit });
       setSuccessMessage('');
       console.error('Ошибка при отправке формы:', error);
       setIsLoading(false);
@@ -112,13 +144,13 @@ const ModalForm = ({ onClose }) => {
       setSuccessMessage('');
       setIsLoading(false);
     }, 2000);
-  };
+  }, [formData, onClose, translations.emailBody, translations.emailSubject, translations.errors.submit, translations.successMessage, validate]);
 
-  const toggleTooltip = () => {
+  const toggleTooltip = useCallback(() => {
     setShowTooltip((prev) => !prev);
-  };
+  }, []);
 
-  const modalContent = (
+  const modalContent = useMemo(() => (
     <div
       className={styles.overlay}
       onClick={onClose}
@@ -130,11 +162,11 @@ const ModalForm = ({ onClose }) => {
         <button
           className={styles.closeButton}
           onClick={onClose}
-          aria-label={t('modal.closeButtonLabel')}
+          aria-label={translations.closeButtonLabel}
         >
           ✕
         </button>
-        <h2 id="modal-title">{t('modal.title')}</h2>
+        <h2 id="modal-title">{translations.title}</h2>
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>
             <input
@@ -143,7 +175,7 @@ const ModalForm = ({ onClose }) => {
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
-              placeholder={t('modal.placeholders.firstName')}
+              placeholder={translations.firstNamePlaceholder}
               className={styles.input}
               required
               aria-required="true"
@@ -163,7 +195,7 @@ const ModalForm = ({ onClose }) => {
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
-              placeholder={t('modal.placeholders.lastName')}
+              placeholder={translations.lastNamePlaceholder}
               className={styles.input}
               required
               aria-required="true"
@@ -183,7 +215,7 @@ const ModalForm = ({ onClose }) => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder={t('modal.placeholders.phone')}
+              placeholder={translations.phonePlaceholder}
               className={styles.input}
               required
               aria-required="true"
@@ -202,7 +234,7 @@ const ModalForm = ({ onClose }) => {
               name="comment"
               value={formData.comment}
               onChange={handleChange}
-              placeholder={t('modal.placeholders.comment')}
+              placeholder={translations.commentPlaceholder}
               className={styles.textarea}
               aria-invalid={errors.comment ? 'true' : 'false'}
               aria-describedby={errors.comment ? 'comment-error' : undefined}
@@ -216,7 +248,7 @@ const ModalForm = ({ onClose }) => {
               <Info
                 className={styles.infoIcon}
                 onClick={toggleTooltip}
-                aria-label={t('modal.tooltipButtonLabel')}
+                aria-label={translations.tooltipButtonLabel}
                 tabIndex="0"
                 role="button"
                 onKeyDown={(e) => {
@@ -246,12 +278,12 @@ const ModalForm = ({ onClose }) => {
             className={styles.submitButton}
             disabled={isLoading}
           >
-            {isLoading ? t('modal.submitting') : t('modal.submit')}
+            {isLoading ? translations.submitting : translations.submit}
           </button>
         </form>
       </div>
     </div>
-  );
+  ), [onClose, translations, formData, handleSubmit, handleChange, toggleTooltip, showTooltip, errors, successMessage, isLoading]);
 
   return ReactDOM.createPortal(modalContent, document.body);
 };

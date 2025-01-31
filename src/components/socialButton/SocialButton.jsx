@@ -1,10 +1,12 @@
+// SocialButton.jsx
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './SocialButton.module.css';
 
 const SocialButton = ({ icon, link }) => {
     return (
         <a href={link} target="_blank" rel="noopener noreferrer" className={styles.button}>
-            <svg className={styles.icon} width="24" height="24">
+            <svg className={styles.icon} width="24" height="24" aria-hidden="true">
                 <use xlinkHref={`/sprite.svg#${icon}`}></use>
             </svg>
         </a>
@@ -16,4 +18,5 @@ SocialButton.propTypes = {
     link: PropTypes.string.isRequired,
 };
 
-export default SocialButton;
+// (Опционально) Оборачиваем компонент в React.memo для оптимизации
+export default React.memo(SocialButton);

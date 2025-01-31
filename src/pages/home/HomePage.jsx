@@ -1,9 +1,11 @@
+// src/pages/home/HomePage.jsx
+import React, { useMemo, useCallback } from 'react';
 import styles from './HomePage.module.css';
 import Masseur from '../../components/masseur/Masseur';
 import Gallery from '../../components/gallery/Gallery';
 import MassageCard from '../../components/massage-card/MassageCard';
 import { useTranslation } from 'react-i18next';
-import { massages } from '../../data/massages';
+import { massages } from '../../data/massages'; // Переименование импорта
 import images1 from '../../assets/images/images1.png';
 import images2 from '../../assets/images/images2.png';
 import images3 from '../../assets/images/images3.png';
@@ -17,8 +19,8 @@ import images9 from '../../assets/images/images9.png';
 const HomePage = () => {
   const { t } = useTranslation();
 
-  // Массив с изображениями для галереи
-  const galleryImages = [
+  // Массив с изображениями для галереи, мемоизированный с помощью useMemo
+  const galleryImages = useMemo(() => [
     { image: images1 },
     { image: images2 },
     { image: images3 },
@@ -28,13 +30,12 @@ const HomePage = () => {
     { image: images7 },
     { image: images8 },
     { image: images9 },
-  ];
+  ], []);
 
-  // Массив с данными для карточек
-
-  const handleBook = (massageTitle) => {
+  // Используем useCallback для handleBook, мемоизируя функцию
+  const handleBook = useCallback((massageTitle) => {
     alert(`${t('common.bookNow')} - ${massageTitle}`);
-  };
+  }, [t]);
 
   return (
     <div className={styles.container}>
@@ -57,4 +58,5 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+// (Опционально) Оборачиваем компонент в React.memo для оптимизации
+export default React.memo(HomePage);
