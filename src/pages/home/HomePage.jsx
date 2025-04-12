@@ -5,16 +5,16 @@ import Masseur from '../../components/masseur/Masseur';
 import Gallery from '../../components/gallery/Gallery';
 import MassageCard from '../../components/massage-card/MassageCard';
 import { useTranslation } from 'react-i18next';
-import { massages } from '../../data/massages'; // Переименование импорта
-import images1 from '../../assets/images/images1.png';
-import images2 from '../../assets/images/images2.png';
-import images3 from '../../assets/images/images3.png';
-import images4 from '../../assets/images/images4.png';
-import images5 from '../../assets/images/images5.png';
-import images6 from '../../assets/images/images6.png';
-import images7 from '../../assets/images/images7.jpg';
-import images8 from '../../assets/images/images8.png';
-import images9 from '../../assets/images/images9.png';
+import { massages } from '../../data/massages';
+import images1 from '../../assets/images/images1.webp';
+import images2 from '../../assets/images/images2.webp';
+import images3 from '../../assets/images/images3.webp';
+import images4 from '../../assets/images/images4.webp';
+import images5 from '../../assets/images/images5.webp';
+import images6 from '../../assets/images/images6.webp';
+import images7 from '../../assets/images/images7.webp';
+import images8 from '../../assets/images/images8.webp';
+import images9 from '../../assets/images/images9.webp';
 
 const HomePage = () => {
   const { t } = useTranslation();

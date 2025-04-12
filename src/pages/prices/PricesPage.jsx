@@ -12,32 +12,32 @@ const PricesPage = () => {
     {
       id: 'face',
       service: t('services.face', { defaultValue: 'Face Massage' }),
-      time: `${25} ${t('minutes', { defaultValue: 'min' })}`, // Общий ключ для "минут"
+      time: `20–25 ${t('minutes', { defaultValue: 'min' })}`, // Общий ключ для "минут"
       price: '60 PLN',
     },
     {
       id: 'classic',
       service: t('services.classic', { defaultValue: 'Classic Massage' }),
-      time: `${40} ${t('minutes', { defaultValue: 'min' })}`,
-      price: '95 PLN',
+      time: `35-40 ${t('minutes', { defaultValue: 'min' })}`,
+      price: '100 PLN',
     },
     {
       id: 'relaxing',
       service: t('services.relaxing', { defaultValue: 'Relaxing Massage' }),
       time: `${60} ${t('minutes', { defaultValue: 'min' })}`,
-      price: '133 PLN',
+      price: '150 PLN',
     },
     {
       id: 'therapeutic',
       service: t('services.therapeutic', { defaultValue: 'Therapeutic Massage' }),
-      time: `${40} ${t('minutes', { defaultValue: 'min' })}`,
-      price: '114 PLN',
+      time: `40-45 ${t('minutes', { defaultValue: 'min' })}`,
+      price: '120 - 130 PLN',
     },
     {
       id: 'lymphaticDrainage',
       service: t('services.lymphaticDrainage', { defaultValue: 'Lymphatic Drainage Massage' }),
       time: `${60} ${t('minutes', { defaultValue: 'min' })}`,
-      price: '142 PLN',
+      price: '160 PLN',
     },
   ], [t]);
 

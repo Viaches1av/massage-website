@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px; /* Высота галереи */
+  height: 400px; /* Высота галереи */
 }
 
 .imageContainer {
@@ -33,7 +33,7 @@
 
 .imageWrapper img {
   width: auto; /* Сохраняет пропорции изображения */
-  height: 100%; /* Устанавливает высоту в 100% родителя */
+  height: 330px; /* Устанавливает высоту в 100% родителя */
   object-fit: contain; /* Изображение будет полностью вписано */
   border-radius: 8px;
 }

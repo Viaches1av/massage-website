@@ -2,7 +2,7 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './Masseur.module.css';
-import masseurImage from '../../assets/images/masseur.jpeg';
+import masseurImage from '../../assets/images/masseur.webp';
 
 const Masseur = () => {
   const { t } = useTranslation('homepage');

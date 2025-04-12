@@ -1,10 +1,10 @@
 // src/data/massages.js
 
-import faceImg from '../assets/images/face.jpg';
-import classicImg from '../assets/images/classic.jpg';
-import relaxingImg from '../assets/images/relaxing.jpg';
-import therapeuticImg from '../assets/images/therapeutic.jpg';
-import lymphaticImg from '../assets/images/lymphatic.jpg';
+import faceImg from '../assets/images/face.webp';
+import classicImg from '../assets/images/classic.webp';
+import relaxingImg from '../assets/images/relaxing.webp';
+import therapeuticImg from '../assets/images/therapeutic.webp';
+import lymphaticImg from '../assets/images/lymphatic.webp';
 
 export const massages = [
   {
