@@ -32,8 +32,8 @@ const Footer = () => {
           />
         </NavLink>
         <div className={styles.socials}>
-          <SocialButton icon="facebook" link="https://facebook.com" />
-          <SocialButton icon="instagram" link="https://instagram.com" />
+          <SocialButton icon="facebook" link="https://www.facebook.com/profile.php?id=100022030821023" />
+          <SocialButton icon="instagram" link="https://www.instagram.com/masaz.lublin?igsh=YWZsNG9ydzJvaTJ6" />
           <SocialButton icon="booksy" link="https://booksy.com/pl-pl/dl/show-business/188424?utm_medium=c2c_referral" />
         </div>
         <div className={styles.modalContainer}>
